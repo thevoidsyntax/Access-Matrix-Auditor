@@ -1,0 +1,17 @@
+Permission,AP Clerk,AP Manager,Read Only Auditor,System Admin,Warehouse Staff,Finance Viewer
+create_vendor,Y,Y,,Y,,
+update_vendor,Y,Y,,Y,,
+delete_vendor,,Y,,Y,,
+view_vendor,Y,Y,Y,Y,,Y
+create_invoice,Y,Y,,Y,,
+approve_payment,Y,Y,,Y,,
+post_journal,,Y,,Y,,
+view_ledger,Y,Y,Y,Y,,Y
+create_purchase_order,Y,Y,,Y,Y,
+approve_purchase_order,,Y,,Y,,
+receive_goods,,,,Y,Y,
+view_inventory,,,Y,Y,Y,
+update_user_role,,,,Y,,
+view_audit_log,,,Y,Y,,
+export_all_data,,,Y,Y,,
+delete_archive,,,,,,
