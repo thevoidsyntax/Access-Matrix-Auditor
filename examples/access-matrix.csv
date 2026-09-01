@@ -1,6 +1,6 @@
 Permission,AP Clerk,AP Manager,Read Only Auditor,System Admin,Warehouse Staff,Finance Viewer
 create_vendor,Y,Y,,Y,,
-update_vendor,Y,Y,,Y,,
+update_vendor,Y,Y,Y,Y,,
 delete_vendor,,Y,,Y,,
 view_vendor,Y,Y,Y,Y,,Y
 create_invoice,Y,Y,,Y,,
