@@ -230,16 +230,17 @@ def check_excessive_privilege(matrix: Matrix, rules: Rules) -> List[Finding]:
             if any(perm.lower().startswith(p.lower()) for p in rules.write_patterns)
         )
 
-        if write_perms:
+               if write_perms:
             shown = ", ".join(write_perms[:5])
             if len(write_perms) > 5:
                 shown += f", and {len(write_perms) - 5} more"
+            plural = "s" if len(write_perms) != 1 else ""
             findings.append(
                 Finding(
                     check="excessive_privilege",
                     severity=Severity.HIGH,
                     subject=role,
-                    detail=f"name suggests read-only but holds {len(write_perms)} write permissions: {shown}",
+                    detail=f"name suggests read-only but holds {len(write_perms)} write permission{plural}: {shown}",
                 )
             )
 
