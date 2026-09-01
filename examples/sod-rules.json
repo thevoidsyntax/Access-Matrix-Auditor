@@ -1,0 +1,61 @@
+{
+  "sod_rules": [
+    {
+      "id": "SOD-01",
+      "permission_a": "create_vendor",
+      "permission_b": "approve_payment",
+      "severity": "HIGH",
+      "rationale": "A user who can create a vendor and approve payments to it can route funds to an entity they control."
+    },
+    {
+      "id": "SOD-02",
+      "permission_a": "create_purchase_order",
+      "permission_b": "approve_purchase_order",
+      "severity": "HIGH",
+      "rationale": "Self-approval of purchase orders removes the second pair of eyes the control exists to provide."
+    },
+    {
+      "id": "SOD-03",
+      "permission_a": "create_invoice",
+      "permission_b": "post_journal",
+      "severity": "HIGH",
+      "rationale": "Creating an invoice and posting the corresponding journal entry allows a fictitious transaction to be recorded without review."
+    },
+    {
+      "id": "SOD-04",
+      "permission_a": "receive_goods",
+      "permission_b": "approve_purchase_order",
+      "severity": "MEDIUM",
+      "rationale": "Confirming receipt of goods you also approved weakens the three-way match."
+    },
+    {
+      "id": "SOD-05",
+      "permission_a": "update_user_role",
+      "permission_b": "approve_payment",
+      "severity": "HIGH",
+      "rationale": "A user who can change their own permissions can grant themselves approval rights."
+    }
+  ],
+
+  "write_patterns": [
+    "create_",
+    "update_",
+    "delete_",
+    "approve_",
+    "post_",
+    "receive_"
+  ],
+
+  "readonly_role_patterns": [
+    "auditor",
+    "viewer",
+    "read only",
+    "readonly",
+    "read-only"
+  ],
+
+  "wildcard_permissions": [
+    "export_all_data",
+    "update_user_role"
+  ]
+}
