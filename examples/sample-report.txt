@@ -1,0 +1,64 @@
+ACCESS MATRIX AUDIT
+============================================================
+Roles:       6
+Permissions: 16
+Findings:    13
+
+HIGH: 8  MEDIUM: 4  LOW: 1
+
+------------------------------------------------------------
+SOD CONFLICT
+------------------------------------------------------------
+[HIGH] SOD-01  AP Clerk
+       holds both 'create_vendor' and 'approve_payment'
+       Why: A user who can create a vendor and approve payments to it can route funds to an entity they control.
+
+[HIGH] SOD-01  AP Manager
+       holds both 'create_vendor' and 'approve_payment'
+       Why: A user who can create a vendor and approve payments to it can route funds to an entity they control.
+
+[HIGH] SOD-02  AP Manager
+       holds both 'create_purchase_order' and 'approve_purchase_order'
+       Why: Self-approval of purchase orders removes the second pair of eyes the control exists to provide.
+
+[HIGH] SOD-03  AP Manager
+       holds both 'create_invoice' and 'post_journal'
+       Why: Creating an invoice and posting the corresponding journal entry allows a fictitious transaction to be recorded without review.
+
+[HIGH] SOD-01  System Admin
+       holds both 'create_vendor' and 'approve_payment'
+       Why: A user who can create a vendor and approve payments to it can route funds to an entity they control.
+
+[HIGH] SOD-02  System Admin
+       holds both 'create_purchase_order' and 'approve_purchase_order'
+       Why: Self-approval of purchase orders removes the second pair of eyes the control exists to provide.
+
+[HIGH] SOD-03  System Admin
+       holds both 'create_invoice' and 'post_journal'
+       Why: Creating an invoice and posting the corresponding journal entry allows a fictitious transaction to be recorded without review.
+
+[HIGH] SOD-05  System Admin
+       holds both 'update_user_role' and 'approve_payment'
+       Why: A user who can change their own permissions can grant themselves approval rights.
+
+[MEDIUM] SOD-04  System Admin
+       holds both 'receive_goods' and 'approve_purchase_order'
+       Why: Confirming receipt of goods you also approved weakens the three-way match.
+
+------------------------------------------------------------
+WILDCARD GRANT
+------------------------------------------------------------
+[MEDIUM]  Read Only Auditor
+       holds broad permission 'export_all_data'
+
+[MEDIUM]  System Admin
+       holds broad permission 'update_user_role'
+
+[MEDIUM]  System Admin
+       holds broad permission 'export_all_data'
+
+------------------------------------------------------------
+ORPHAN PERMISSION
+------------------------------------------------------------
+[LOW]  delete_archive
+       assigned to no role
