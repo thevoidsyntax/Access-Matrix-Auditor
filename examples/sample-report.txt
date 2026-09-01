@@ -2,9 +2,15 @@ ACCESS MATRIX AUDIT
 ============================================================
 Roles:       6
 Permissions: 16
-Findings:    13
+Findings:    14
 
-HIGH: 8  MEDIUM: 4  LOW: 1
+HIGH: 9  MEDIUM: 4  LOW: 1
+
+------------------------------------------------------------
+EXCESSIVE PRIVILEGE
+------------------------------------------------------------
+[HIGH]  Read Only Auditor
+       name suggests read-only but holds 1 write permission: update_vendor
 
 ------------------------------------------------------------
 SOD CONFLICT

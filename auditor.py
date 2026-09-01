@@ -230,7 +230,7 @@ def check_excessive_privilege(matrix: Matrix, rules: Rules) -> List[Finding]:
             if any(perm.lower().startswith(p.lower()) for p in rules.write_patterns)
         )
 
-               if write_perms:
+        if write_perms:
             shown = ", ".join(write_perms[:5])
             if len(write_perms) > 5:
                 shown += f", and {len(write_perms) - 5} more"
